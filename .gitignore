@@ -1,0 +1,6 @@
+media/
+node_modules/
+.env/
+data.json
+data.xlsx
+yarn-error.log
