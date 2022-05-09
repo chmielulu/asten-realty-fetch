@@ -146,15 +146,23 @@ async function getDataFromSites(references) {
             .innerHTML,
         };
 
-        data.price = Number(
+        const price = Number(
           document
-            .querySelector(".sale")
-            .textContent.replace("€", "")
+            .querySelector(
+              ".property__main__info__item.property__main__info__item--price .sale"
+            )
+            ?.textContent.replace("€", "")
             .replace(/\s/g, "")
         );
+        if (!isNaN(price)) {
+          data.price = price;
+        }
+
         const priceBefore = Number(
           document
-            .querySelector(".sale.old")
+            .querySelector(
+              ".property__main__info__item.property__main__info__item--price .sale.old"
+            )
             ?.textContent.replace("€", "")
             .replace(/\s/g, "")
         );
